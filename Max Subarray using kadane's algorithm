@@ -1,12 +1,6 @@
 #include<bits/stdc++.h>
 
 using namespace std; 
-#define ll long long 
-#define mp make_pair
-#define pb push_back
-#define vt vector
-#define in insert
-
 
 void solve(){   //KADANE'S ALGORITHM for MAX SUBARRAY
 
@@ -37,13 +31,6 @@ void solve(){   //KADANE'S ALGORITHM for MAX SUBARRAY
 }
 int main()
 {
-  #ifndef ONLINE_JUDGE
-  freopen("input.txt","r", stdin);
-  freopen("output.txt","w", stdout);
-  #endif
-      // int t;
-      // scanf("%d",&t);
-      // while(t--){
-      solve();
+  solve();
   return 0;
 }
