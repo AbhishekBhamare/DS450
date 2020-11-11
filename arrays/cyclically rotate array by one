@@ -1,12 +1,6 @@
 #include<bits/stdc++.h>
 
 using namespace std; 
-#define ll long long 
-#define mp make_pair
-#define pb push_back
-#define vt vector
-#define in insert
-
 
 void solve(){
    
@@ -25,11 +19,7 @@ void solve(){
 }
 int main()
 {
-  #ifndef ONLINE_JUDGE
-  freopen("input.txt","r", stdin);
-  freopen("output.txt","w", stdout);
-  #endif
-      int t;
+   int t;
       scanf("%d",&t);
       while(t--){
       solve();}
