@@ -6,7 +6,7 @@ using namespace std;
 #define pb push_back
 #define vt vector
 
-
+//can be done using seggeregation technique in O(n) time and sort can be avoided
 void solve(){
 
   int n;
