@@ -1,34 +1,33 @@
+/*return the kth smallest element.*/
+
 #include<bits/stdc++.h>
 
 using namespace std; 
-#define ll long long 
-#define mp make_pair
-#define pb push_back
-#define vt vector
 
+int solve(int arr[],int n,int k){   // USING MAX-HEAP 
+    priority_queue<int>p;
+    for(int i=0;i<k;i++){
+        p.push(arr[i]);
+    }
+    for(int i=k;i<n;i++){
 
-void solve(){
-  int n;
-  scanf("%d",&n);
-  int arr[n];
-  for(int i=0;i<n;i++){
-    scanf("%d",&arr[i]);
-  }
-  int k;
-  scanf("%d",&k);
-  sort(arr,arr+n);
-  cout<<arr[k-1]<<endl;
+      if(p.top()>arr[i]){
+        p.pop();
+        p.push(arr[i]);
+      }
+    }
 
+    return p.top();
+    
 }
 int main()
 {
-  #ifndef ONLINE_JUDGE
-  freopen("input.txt","r", stdin);
-  freopen("output.txt","w", stdout);
-  #endif
-      int t;
-      scanf("%d",&t);
-      while(t--){
-      solve();}
+    int n,k;
+    scanf("%d%d",&n,&k);
+    int arr[n];
+    for(int i=0;i<n;i++){
+         scanf("%d",&arr[i]);
+    }
+      cout<<solve(arr,n,k)<<endl;
   return 0;
 }
