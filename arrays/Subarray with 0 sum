@@ -20,7 +20,7 @@ string solve(){
 
         return "YES";             
     } 
-    subSum.in(sum);
+    subSum.insert(sum);
   }
   return "NO";
 }
