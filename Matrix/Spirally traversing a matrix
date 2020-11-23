@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+#define vt vector
+#define pb push_back
+
+void solve(){
+  vt<vt<int>>v;
+  int r,c;
+  scanf("%d%d",&r,&c);
+  int ele;
+  for(int i=0;i<r;i++){
+    vt<int>x;
+    for(int j=0;j<c;j++){
+
+       cin>>ele;
+       x.pb(ele);
+    }
+    v.pb(x);  
+  } 
+   int top=0,down=r-1,right=c-1,left=0,dir=0;
+
+   while(top<=down && left<=right){
+     if(dir==0){
+       
+       for(int i=left;i<=right;i++){
+         cout<<v[top][i]<<" ";
+       }
+       top++;
+     }
+     else if(dir==1){
+         for(int i=top;i<=down;i++){
+           cout<<v[i][right]<<" ";
+         }
+         right--;
+     } 
+     else if(dir==2){
+        for(int i=right;i>=left;i--){
+          cout<<v[down][i]<<" ";
+        }
+        down--;
+     }
+     else if(dir==3){
+        for(int i=down;i>=top;i--){
+          cout<<v[i][left]<<" ";
+        }
+        left++;
+     }
+
+      dir = (dir+1)%4;
+    }
+}
+
+int main()
+{
+ solve();
+ return 0; 
+}
