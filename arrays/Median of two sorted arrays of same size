@@ -24,7 +24,7 @@ void solve(){
    vt<int>v;  
    int p1=0,p2=0;
    
-   while(p1<n || p2<n){
+   while(p1<n && p2<n){
 
      if(v1[p1]<v2[p2]){
         v.pb(v1[p1]);
