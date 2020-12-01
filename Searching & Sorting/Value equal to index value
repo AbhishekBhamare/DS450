@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+
+using namespace std; 
+#define vt vector
+#define pb push_back
+
+void solve(){
+ 
+ int n;
+ scanf("%d",&n);
+ int arr[n];
+ for(int i=0;i<n;i++){
+    scanf("%d",&arr[i]);
+ }
+ vt<int>v;
+ for(int i=0;i<n;i++){
+    if(arr[i]==i+1){
+      v.pb(i+1);
+      break;
+    }
+ }
+  for(int i=0;i<v.size();i++){
+     cout<<v[i]<<" ";
+  }
+}
+int main()
+{
+ solve();
+ return 0; 
+}
+
+ 
