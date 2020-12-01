@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+ 
+using namespace std; 
+
+int solve(){
+ 
+ int n,target;
+ scanf("%d%d",&n,&target);
+ int arr[n];
+ for(int i=0;i<n;i++){
+    scanf("%d",&arr[i]);
+ }
+ int ans = -1;
+ for(int i=0;i<n;i++){
+    if(arr[i]==target){
+      ans = i;
+      break;
+
+    }
+ }
+ return ans;
+}
+int main()
+{
+cout<<solve();
+ return 0; 
+}
+
+ 
