@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std; 
+
+int solve(){   // Efficient Method
+ 
+ int n;
+ scanf("%d",&n);
+ if(n==1) return 0;
+ return (floor(sqrt(n))-ceil(sqrt(1))+1);
+}
+int main()
+{
+ cout<<solve();
+ return 0; 
+}
+
+ 
