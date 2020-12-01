@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+
+using namespace std; 
+
+
+int solve(){   
+ 
+ int a,b,c;
+ scanf("%d%d%d",&a,&b,&c);
+
+ if(max(a,b)<c) return max(a,b);
+ else if(max(a,b)>c) return max(min(a,b),c);
+ return 0;
+}
+int main()
+{
+ cout<<solve();
+ return 0; 
+}
+
+ 
