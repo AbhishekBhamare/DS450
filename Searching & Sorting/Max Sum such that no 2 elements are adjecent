@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+
+using namespace std; 
+
+int solve(){   
+ 
+  int n;
+  scanf("%d",&n);
+  int arr[n];
+  for(int i=0;i<n;i++){
+     scanf("%d",&arr[i]);
+  }
+  int ex = 0;
+  int in = arr[0];
+  for(int i=1;i<n;i++){
+
+    int new_in = ex + arr[i];
+    int new_ex = max(in , ex);
+
+    ex = new_ex;
+    in = new_in;
+
+  }
+  return max(in, ex);
+}
+int main()
+{
+  
+ int t;
+ scanf("%d",&t);
+ while(t--){
+ cout<<solve()<<endl;}
+ return 0; 
+}
+
+ 
