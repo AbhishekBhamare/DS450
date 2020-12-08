@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+// MERGE SORT WITHOUT USING EXTRA SPACE
+
+void merge(int arr[], int l, int mid, int r){
+	
+	int k = mid + 1;
+	if(arr[mid] <= arr[k]){
+		return;
+	}
+	
+	while(l <= mid && k <= r){
+		if(arr[l] <= arr[k]){
+			l++;
+		}
+		else{
+		    int val = arr[k];
+            int i = k;
+            while(i != l){
+				arr[i] = arr[i - 1];
+				i--;
+			}
+            arr[l] = val;
+            l++;
+            mid++;
+            k++;			
+		}
+	} 
+	
+}
+void mergeSort(int arr[], int l, int r){
+	if(l < r){
+		int mid  = (l+r)/2;
+		
+		mergeSort(arr,0,mid);
+		mergeSort(arr,mid+1,r);
+		
+		merge(arr,l,mid,r);
+	}  
+}
+void print(int arr[], int n){
+	for(int i=0; i<n; i++){
+		cout << arr[i] << " "; 
+	}
+}
+int main()
+{ 
+   int n;
+   cin >> n;
+   int arr[n];
+   for(int i=0; i<n; i++){
+	   cin >> arr[i];
+   }   
+  mergeSort(arr,0,n-1);
+  print(arr,n);
+ return 0; 
+}
+
+ 
