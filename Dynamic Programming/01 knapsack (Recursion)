@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int solve(int n, int w, int wt[], int v[]){
+      
+	  if(n == 0 || w == 0){
+		     return 0;
+	  }
+	  
+	  else if(wt[n-1] <= w){
+		  
+	     	return max(v[n-1] + solve(n-1, w-wt[n-1], wt, v), solve(n-1, w, wt, v));
+	  }
+	  
+	  else{ 
+		      return  solve(n-1, w, wt, v);
+	  }
+}
+int main(){ 
+ 
+ 
+   int n,w;
+	 cin >> n >> w;
+	 int wt[n];
+	 int v[n];
+	 
+	 
+	 for(int i=0; i<n; i++){
+		 cin >> v[i];
+	 }
+	 for(int i=0; i<n; i++){
+		 cin >> wt[i];
+	 }
+	cout << solve(n,w,wt,v) << "\n";
+     return 0;	  
+}
+
+ 
