@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int solve(int x, int y, string s1, string s2){
+    		
+		if(x == 0 || y == 0){
+	    	return 0;
+    }
+    else if(s1[x-1] == s2[y-1]){
+	  
+	     	return solve(x-1, y-1, s1, s2)+1;
+    	
+	  }
+    else{
+	    	return max(solve(x-1, y, s1, s2), solve(x, y-1, s1, s2));
+    }	
+
+}
+int main(){ 
+
+ 
+	string s1, s2;
+    cin >> s1 >> s2;
+    int x = s1.size();
+    int y = s2.size();	
+	  cout <<  solve(x, y, s1, s2);
+     return 0;	  
+}
