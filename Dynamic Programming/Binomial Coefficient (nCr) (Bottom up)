@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int solve(int n, int r){
+    
+    long long p = 1000000007;    // Given 
+    vector<vector<long long>>dp(n+1,vector<long long>(r+1));
+    
+	if(n < r){return 0;}
+  
+	for(int i=0; i<n+1; i++){
+		for(int j=0; j<=min(i, r); j++){
+			
+	 if(j == 0 || i == j){
+		  dp[i][j] = 1;
+	    }	
+    
+    	else{
+	    	dp[i][j] = (dp[i-1][j-1]%p + dp[i-1][j]%p)%p;
+	    } 			
+  	  }
+	} 
+	return dp[n][r]%p;
+}
+int main(){ 
+
+ 	int n, r;
+	cin >> n >> r;
+	cout <<  solve(n, r);
+     return 0;	  
+}
