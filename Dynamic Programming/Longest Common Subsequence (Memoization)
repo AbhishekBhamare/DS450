@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+vector<vector<int>>dp(100, vector<int>(100));
+
+int solve(int x, int y, string s1, string s2){
+    
+      	if(x == 0 || y == 0){
+	         dp[x][y] = 0;
+     	}
+        else if(s1[x-1] == s2[y-1]){
+	
+	    	dp[x][y] = solve(x-1, y-1, s1, s2)+1;
+    	
+		}
+        else{
+	    	dp[x][y] = max(solve(x-1, y, s1, s2), solve(x, y-1, s1, s2));
+     	}	
+    return dp[x][y]; 
+}
+int main(){ 
+
+
+	string s1, s2;
+    cin >> s1 >> s2;
+    int x = s1.size();
+    int y = s2.size();	
+	cout <<  solve(x, y, s1, s2);
+     return 0;	  
+}
