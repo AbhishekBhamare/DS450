@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int solve(){
+   
+   int n;
+   cin >> n;
+   int arr[n];
+
+   for(int i=0; i<n; i++){
+       cin >> arr[i];
+   }
+   vector<int>dp(n+1);
+   int ans = 0;
+   for(int i=0; i<n; i++){
+       int sum = 0;
+       for(int j=0; j<i; j++){
+           
+          if(arr[i] > arr[j]){
+              if(sum == 0){
+                  sum =  dp[j];
+              }
+              else if(dp[j] > sum){
+                 sum = dp[j];
+            }
+          }
+       }
+       if(sum == 0){
+           dp[i] = arr[i];
+       }
+       else{
+           dp[i] = sum + arr[i];
+       }
+       if(dp[i] > ans){
+           ans = dp[i];
+       }
+   }   
+   
+   return ans;    
+}
+int main(){ 
+
+   	cout << solve() << "\n";
+     return 0;	  
+}
