@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+string	 solve(){
+	string S;
+	cin >> S;
+	string ans = "";
+        ans += S[0];
+       for(int i=1; i<S.size(); i++){
+           if(S[i] != S[i-1]){
+               ans += S[i];
+           }
+       }
+       return ans;
+
+}   
+int main(){ 
+ 
+  cout << solve() << "\n";
+	return 0;
+}
