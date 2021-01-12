@@ -22,7 +22,7 @@ vector<int> reverseLevelOrder(Node *node)
       if(current->right != NULL) Q.push(current->right); 
       if(current->left != NULL) Q.push(current->left);
       
-      //ans.push_back(current -> data);
+    
       Q.pop();
       
   }
