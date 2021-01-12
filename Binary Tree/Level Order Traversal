@@ -1,0 +1,38 @@
+// GeeksForGeeks Practice Questions -: https://practice.geeksforgeeks.org/problems/level-order-traversal/1#
+
+/* A binary tree Node
+
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+    
+    Node(int x){
+        data = x;
+        left = right = NULL;
+    }
+};
+ */
+
+//You are required to complete this method
+vector<int> levelOrder(Node* node)   // Level Order Traversal (return vector of all the elements)
+{
+    
+  vector<int>ans;    
+  
+  queue<Node*>Q;
+  Q.push(node);
+  
+  while(!Q.empty()){   
+      
+      Node* current = Q.front();   
+      if(current->left != NULL) Q.push(current->left); 
+      if(current->right != NULL) Q.push(current->right);
+      
+      ans.push_back(current -> data);
+      Q.pop();
+      
+  }
+  return ans;
+}
