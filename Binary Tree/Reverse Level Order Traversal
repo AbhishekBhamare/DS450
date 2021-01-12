@@ -1,0 +1,38 @@
+// GeeksForGeeks -: https://practice.geeksforgeeks.org/problems/reverse-level-order-traversal/1#
+
+
+/*   
+struct Node
+{
+    int data;
+    Node* left;
+    Node* right;
+}; */
+vector<int> reverseLevelOrder(Node *node)
+{
+  vector<int>ans;    
+  stack<Node*>S;
+  queue<Node*>Q;
+  Q.push(node);
+  
+  while(!Q.empty()){   
+      
+      Node* current = Q.front();
+      S.push(current);
+      if(current->right != NULL) Q.push(current->right); 
+      if(current->left != NULL) Q.push(current->left);
+      
+      //ans.push_back(current -> data);
+      Q.pop();
+      
+  }
+  
+  while(!S.empty()){
+      
+      Node* current = S.top();
+      ans.push_back(current -> data);
+      S.pop();
+  }
+  
+  return ans;
+}
