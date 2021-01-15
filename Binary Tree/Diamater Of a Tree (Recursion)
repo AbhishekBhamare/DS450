@@ -1,0 +1,35 @@
+// GfG -: https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1#
+// Date :- 15 Jan 2021
+
+/* Tree node structure  used in the program
+
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+
+    Node(int x){
+        data = x;
+        left = right = NULL;
+    }
+}; */
+
+int height(Node* root){
+     if(root == NULL){
+         return 0;
+     }
+     return max(height(root->left), height(root->right))+1;
+}
+
+/* Computes the diameter of binary tree with given root.  */
+int diameter(Node* root) {
+    if(root == NULL){
+        return 0;
+    }
+    int ld = diameter(root->left); // left diameter
+    int rd = diameter(root->right); // right diameter
+    int t = height(root->left) + height(root->right)+1;  
+    int ans = max(t, max(ld, rd));
+    return ans;
+}
