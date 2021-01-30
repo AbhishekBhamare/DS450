@@ -12,34 +12,29 @@ string solve(){
 		cin >> s[i];
 	}
 	
-	if(s.size() == 0){
-            return "";
-        }
-        string temp = s[0];
-        for(int i=1; i<s.size(); i++){
-           if(s[i].size() < temp.size()){
-               temp = s[i];
+	if(s.size()==0){
+       return "";
+   }
+   string temp=s[0];
+   for(int i=1; i<s.size(); ++i){
+       if(s[i].size()<temp.size()){
+           temp=s[i];
+       }
+   }
+   string ans;
+   while(temp.size()){
+       int cnt=0;
+       for(int i=0; i<s.size(); i++){
+           if(s[i].substr(0,temp.size())==temp){
+               ++cnt;
            }
        }
-       while(temp.size()){
-           int cnt = 0;
-           string x = temp.substr(0, temp.size());
-           for(int i=0; i<s.size(); i++){
-               if(s[i].substr(0, temp.size()) != temp){
-                   break;
-               }
-               else{
-                   ++cnt;
-               }
-           }
-           if(cnt == s.size()){
-               return temp;
-           }
-           else{
-               temp = temp.substr(0, temp.size()-1);
-           }
+       if(cnt==s.size()){
+           return temp;
        }
-        return "";
+       temp=temp.substr(0, temp.size()-1);
+   }
+   return "";
 
 }   
 int main(){ 
