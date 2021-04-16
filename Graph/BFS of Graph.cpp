@@ -2,27 +2,27 @@
 
 class Solution {
 public:
+    vector<int>ans;
+    vector<bool>visited;
+    void bfs(vector<int>adj[], int t){
+        queue<int>Q;
+        Q.push(t);
+        visited[t]=true;
+        while(!Q.empty()){
+            int temp=Q.front();
+            ans.push_back(temp);
+            Q.pop();
+            for(auto&i:adj[temp]){
+                if(!visited[i]){
+                    visited[i]=true;
+                    Q.push(i);
+                }
+            }
+        }
+    }
 	vector<int>bfsOfGraph(int V, vector<int> adj[]){
-	    vector<int>ans;
-	    list<int>q;
-	    vector<bool>vs(V, 0);
-	    
-	    vs[0]=true;
-	    q.push_back(0);
-	    
-	    while(!q.empty()){
-	        
-	        int temp=q.front();
-	        ans.push_back(temp);
-	        q.pop_front();
-	        
-	        for(auto&i:adj[temp]){
-	            if(!vs[i]){
-	                vs[i]=true;
-	                q.push_back(i);
-	            }
-	        }
-	    }
-	    return ans;
+	     visited.assign(V, false);
+	     bfs(adj, 0);
+	     return ans;
 	}
 };
