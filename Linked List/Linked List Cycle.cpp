@@ -1,4 +1,4 @@
-[Link to Problem](https://leetcode.com/problems/linked-list-cycle/)
+// https://leetcode.com/problems/linked-list-cycle/
                   
 // RABBIT AND HARE ALGORITHM
 
