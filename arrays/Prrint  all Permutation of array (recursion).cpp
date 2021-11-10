@@ -1,32 +1,31 @@
-#include<bits/stdc++.h>
-using namespace std;
+// https://leetcode.com/problems/permutations/
 
-void solve(int arr[], int current_index, int n){
-    
-	if(current_index == n-1){
-		for(int i=0; i<n; i++){
-			cout << arr[i] << " ";
-		}
-		cout << "\n";
-	}
-	else{
-    for(int i=current_index; i<n; i++){
-		swap(arr[i], arr[current_index]);
-		solve(arr, current_index+1, n);
-		swap(arr[i], arr[current_index]);
-	}   
-  }
-}
-int main()
-{ 
-   int n;
-   cin >> n;
-   int arr[n];
-   for(int i=0; i<n; i++){
-	   cin >> arr[i];
-   }	
-   solve(arr,0,n); 
-   return 0; 
-}
-
- 
+class Solution {
+public:
+    void next_per(vector<int>& nums, vector<vector<int>>&ans, vector<int>&visited, vector<int>&temp){
+        
+        if(nums.size() == temp.size()){
+            ans.push_back(temp);
+            return;
+        }
+        
+        for(int i=0; i<nums.size(); ++i){
+            if(visited[i]){
+                continue;
+            }else{
+                temp.push_back(nums[i]);
+                visited[i]=true;
+                next_per(nums, ans, visited, temp);
+                visited[i]=false;
+                temp.pop_back();
+            }
+        }
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>>ans;
+        vector<int>visited(nums.size(), false);
+        vector<int>temp;
+        next_per(nums, ans, visited, temp);
+        return ans;
+    }
+};
